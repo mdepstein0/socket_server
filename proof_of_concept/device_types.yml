@@ -1,0 +1,74 @@
+device_types:
+  - name: BluRay Player
+    port: 101
+    status_variables:
+      PLAY_STATUS:
+        valid_values: ["ON", "PAUSE", "OFF"]
+    valid_commands:
+      - input: "PLAY?"
+        function: get
+        parameters: 
+          - PLAY_STATUS
+        output: "PLAY={PLAY_STATUS}"
+
+      - input: "PLAY=ON"
+        function: set
+        parameters: 
+          - PLAY_STATUS
+          - "ON"
+        output: "PLAY={PLAY_STATUS}"
+
+      - input: "PLAY=OFF"
+        function: set
+        parameters: 
+          - PLAY_STATUS
+          - "OFF"
+        output: "PLAY={PLAY_STATUS}"
+
+      - input: "PLAY=PAUSE"
+        function: set
+        parameters: 
+          - PLAY_STATUS
+          - "PAUSE"
+        output: "PLAY={PLAY_STATUS}"
+
+      - input: "NEXT"
+        output: "NEXT"
+
+      - input: "LAST"
+        output: "LAST"
+
+      - input: "FF"
+        output: "FF"
+
+      - input: "REW"
+        output: "REW"
+
+
+  - name: Camera
+    port: 102
+    status_variables:
+      POWER_STATUS:
+        valid_values: ["ON", "OFF"]
+    valid_commands:
+      - input: "POWER=ON"
+        function: set
+        parameters: 
+          - POWER_STATUS
+          - "ON"
+        output: "POWER={POWER_STATUS}"
+
+      - input: "PAN=LEFT"
+        output: "PAN=LEFT"
+      
+      - input: "PAN=RIGHT"
+        output: "PAN=RIGHT"
+
+      - input: "PAN=STOP"
+        output: "PAN=STOP"
+
+      - input: "POWER?"
+        function: get
+        parameters:
+          - POWER_STATUS
+        output: "POWER={POWER_STATUS}"
